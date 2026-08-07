@@ -24,10 +24,10 @@ days_left = (target_date - today).days
 # نص الرسالة ونص الزر
 main_text = "الدوام"
 
-if days_left == 0:
-    button_text = "🎉 اليوم هو 1 أكتوبر!"
+if days_left == 1:
+    button_text = "باجر دوام"
 else:
-    button_text = f"⏳ متبقي: {days_left} يوم"
+    button_text = f" بعد: {days_left} يوم"
 
 # إنشاء هيكل الزر مع ربطه بالرابط الخاص بك
 keyboard = {
