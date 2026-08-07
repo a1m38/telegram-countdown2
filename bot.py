@@ -12,7 +12,7 @@ MESSAGE_ID = os.environ.get("MESSAGE_ID")
 iraq_tz = timezone(timedelta(hours=3))
 today = datetime.now(iraq_tz).date()
 
-# تحديد تاريخ هدف (1 أكتوبر للسنة الحالية أو القادمة)
+# تحديد تاريخ 1 أكتوبر للسنة الحالية أو القادمة
 target_year = today.year
 if today >= datetime(target_year, 10, 1).date():
     target_year += 1
@@ -21,34 +21,34 @@ target_date = datetime(target_year, 10, 1).date()
 # حساب الأيام المتبقية
 days_left = (target_date - today).days
 
-# نص الرسالة الرئيسية
+# نص الرسالة ونص الزر
 main_text = "الدوام"
 
-# نص الزر (يحتوي على العد التنازلي)
 if days_left == 0:
     button_text = "🎉 اليوم هو 1 أكتوبر!"
 else:
     button_text = f"⏳ متبقي: {days_left} يوم"
 
-# إنشاء هيكل الأزرار الشفافة (Inline Keyboard)
-# نضع زر واحد فقط، ونربطه ببيانات وهمية (callback_data) لأنه للعرض فقط
+# إنشاء هيكل الزر مع ربطه بالرابط الخاص بك
 keyboard = {
     "inline_keyboard": [
         [
-            {"text": button_text, "callback_data": "countdown_display"}
+            {
+                "text": button_text, 
+                "url": "https://t.me/QXX77/1188"
+            }
         ]
     ]
 }
 
-# إعداد الطلب (تعديل الرسالة بدلاً من إرسال جديدة)
+# إرسال طلب التعديل إلى تيليجرام
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/editMessageText"
 payload = {
     "chat_id": CHAT_ID,
     "message_id": MESSAGE_ID,
     "text": main_text,
-    "reply_markup": json.dumps(keyboard) # إضافة الأزرار هنا
+    "reply_markup": json.dumps(keyboard)
 }
 
-# إرسال الطلب وطباعة النتيجة للتحقق
 response = requests.post(url, json=payload)
 print(response.json())
