@@ -21,7 +21,7 @@ if days_left == 0:
 else:
     text = f"⏳ متبقي على 1 أكتوبر: {days_left} يوم."
 
-url = f"https://api.telegram.org/bot{BOT_TOKEN}/editMessageText"
+url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 payload = {
     "chat_id": CHAT_ID,
     "message_id": MESSAGE_ID,
