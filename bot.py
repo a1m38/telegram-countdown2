@@ -14,9 +14,9 @@ today = datetime.now(iraq_tz).date()
 
 # تحديد تاريخ 1 أكتوبر للسنة الحالية أو القادمة
 target_year = today.year
-if today >= datetime(target_year, 10, 1).date():
+if today >= datetime(target_year, 9, 20).date():
     target_year += 1
-target_date = datetime(target_year, 10, 1).date()
+target_date = datetime(target_year, 9, 20).date()
 
 # حساب الأيام المتبقية
 days_left = (target_date - today).days
