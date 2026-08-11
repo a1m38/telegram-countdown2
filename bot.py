@@ -22,7 +22,7 @@ target_date = datetime(target_year, 9, 20).date()
 days_left = (target_date - today).days
 
 # نص الرسالة ونص الزر
-main_text = "الدوام"
+main_text = "الدوام 9/20 اقروا"
 
 if days_left == 1:
     button_text = "باجر دوام"
